@@ -607,6 +607,9 @@
                         <ignore>Build-Date</ignore>
                       </ignoredAttributes>
                     </metaInf>
+                    <ignoredFiles>
+                      <ignore>**/jandex.idx</ignore>
+                    </ignoredFiles>
                   </runtimeClassPath>
                 </normalization>
               </gradleEnterprise>
