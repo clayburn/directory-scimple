@@ -595,6 +595,26 @@
               </execution>
             </executions>
           </plugin>
+          <plugin>
+            <groupId>com.gradle</groupId>
+            <artifactId>gradle-enterprise-maven-extension</artifactId>
+            <configuration>
+              <gradleEnterprise>
+                <normalization>
+                  <runtimeClassPath>
+                    <metaInf>
+                      <ignoredAttributes>
+                        <ignore>Build-Date</ignore>
+                      </ignoredAttributes>
+                    </metaInf>
+                    <ignoredFiles>
+                      <ignore>**/jandex.idx</ignore>
+                    </ignoredFiles>
+                  </runtimeClassPath>
+                </normalization>
+              </gradleEnterprise>
+            </configuration>
+          </plugin>
       </plugins>
     </pluginManagement>
   </build>
