@@ -624,6 +624,7 @@
                 <configurationParameters>
                   junit.jupiter.execution.parallel.enabled = true
                   junit.jupiter.execution.parallel.mode.default = concurrent
+                  junit.platform.execution.dryRun.enabled = true
                 </configurationParameters>
               </properties>
             </configuration>
@@ -645,6 +646,7 @@
                 <configurationParameters>
                   junit.jupiter.execution.parallel.enabled = true
                   junit.jupiter.execution.parallel.mode.default = concurrent
+                  junit.platform.execution.dryRun.enabled = true
                 </configurationParameters>
               </properties>
             </configuration>
@@ -723,6 +725,24 @@
             <xmlOutput>true</xmlOutput>
             <fork>false</fork>
             <excludeFilterFile>${session.executionRootDirectory}/src/spotbugs/excludes.xml</excludeFilterFile>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>com.gradle</groupId>
+          <artifactId>gradle-enterprise-maven-extension</artifactId>
+          <configuration>
+            <gradleEnterprise>
+              <plugins>
+                <plugin>
+                  <artifactId>maven-compiler-plugin</artifactId>
+                  <inputs>
+                    <ignoredProperties>
+                      <ignore>forceLegacyJavacApi</ignore>
+                    </ignoredProperties>
+                  </inputs>
+                </plugin>
+              </plugins>
+            </gradleEnterprise>
           </configuration>
         </plugin>
       </plugins>

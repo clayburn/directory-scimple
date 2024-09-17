@@ -8,4 +8,4 @@ target/
 .vscode/
 *.iml
 .idea/
-.mvn/.develocity/develocity-workspace-id
+.mvn/.gradle-enterprise/gradle-enterprise-workspace-id
