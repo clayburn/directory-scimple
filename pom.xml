@@ -43,6 +43,7 @@
     <maven.compiler.target>${jdk.version}</maven.compiler.target>
     <maven.compiler.release>${jdk.version}</maven.compiler.release>
     <version.jackson>2.17.2</version.jackson>
+    <version.logback>1.5.14</version.logback>
     <version.lombok>1.18.34</version.lombok>
     <version.lombok.plugin>1.18.20.0</version.lombok.plugin>
     <version.restfuse>1.2.0</version.restfuse>
@@ -288,8 +289,13 @@
       </dependency>
       <dependency>
         <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>${version.logback}</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
-        <version>1.5.12</version>
+        <version>${version.logback}</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
