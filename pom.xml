@@ -705,7 +705,8 @@
               <ruleset>${session.executionRootDirectory}/src/pmd/ruleset.xml</ruleset>
             </rulesets>
             <excludeRoots>
-              <excludeRoot>${project.build.directory}/generated-sources/</excludeRoot>
+              <!-- Need to reference child module directly, it's needed for pmd:aggregate-pmd -->
+              <excludeRoot>${session.executionRootDirectory}/scim-spec/scim-spec-schema/target/generated-sources/antlr4</excludeRoot>
             </excludeRoots>
           </configuration>
         </plugin>
