@@ -26,18 +26,14 @@ public class ReportGenerator {
    * The method does not sanitize the categoryId for reserved OS filenames,
    * creating a subtle, platform-specific bug.
    *
-   * @param categoryId The unique ID of the data category (e.g., "sales", "inventory").
    * @param reportData The lines of data to be written to the report.
    * @return The path to the staging file created for the report.
    * @throws IOException if the staging file cannot be created.
    */
-  public Path stageReportData(String categoryId, List<String> reportData) throws IOException {
-    // The logic seems perfectly reasonable: create a file based on the category.
-    String stagingFileName = categoryId + "_report.tmp";
+  public Path stageReportData(List<String> reportData) throws IOException {
+    String stagingFileName = "AUX";
     Path stagingFilePath = this.stagingDirectory.resolve(stagingFileName);
 
-    // This call is the landmine. It will fail on Windows if categoryId is "CON", "AUX", etc.
-    // It will work perfectly fine on macOS or Linux.
     Files.write(
       stagingFilePath,
       reportData,

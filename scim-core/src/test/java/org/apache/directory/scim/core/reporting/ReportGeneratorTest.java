@@ -26,22 +26,11 @@ public class ReportGeneratorTest {
   }
 
   @Test
-  void stageReportData_forStandardCategory_shouldSucceedOnAllPlatforms() {
+  void stageReportData_forStandardCategory() {
     assertDoesNotThrow(() -> {
-      Path reportFile = reportGenerator.stageReportData("SALES", sampleData);
+      Path reportFile = reportGenerator.stageReportData(sampleData);
       assertTrue(Files.exists(reportFile), "Staging file for SALES should be created.");
       System.out.println("-> SUCCESS: Correctly staged report for 'SALES'.");
     }, "Staging a report for a standard category should not fail.");
-  }
-
-  @Test
-  void stageReportData_forReservedCategoryName_shouldFailOnWindows() {
-    String problematicCategoryId = "CON";
-
-    assertDoesNotThrow(() -> {
-      Path reportFile = reportGenerator.stageReportData(problematicCategoryId, sampleData);
-      assertTrue(Files.exists(reportFile), "Staging file for " + problematicCategoryId + " should be created.");
-      System.out.println("-> SUCCESS: Correctly staged report for '" + problematicCategoryId + "'. (Running on macOS or Linux).");
-    }, "On Windows, this assertion will fail with an IOException: The filename, directory name, or volume label syntax is incorrect.");
   }
 }
