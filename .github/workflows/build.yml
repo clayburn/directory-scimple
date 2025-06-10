@@ -26,8 +26,10 @@ jobs:
 
     strategy:
       matrix:
+        os: [ubuntu-latest, windows-latest]
         java: [17, 21]
 
+    runs-on: ${{ matrix.os }}
     uses: ./.github/workflows/maven.yml
     with:
       mvn: verify -Pci
