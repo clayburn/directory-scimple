@@ -29,7 +29,6 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         java: [17, 21]
 
-    runs-on: ${{ matrix.os }}
     uses: ./.github/workflows/maven.yml
     with:
       mvn: verify -Pci
@@ -37,4 +36,5 @@ jobs:
       jobs_path: "build (${{ matrix.java }}) / maven"
       java-version: ${{ matrix.java }}
       java-distribution: 'zulu'
+      os: ${{ matrix.os }}
     secrets: inherit

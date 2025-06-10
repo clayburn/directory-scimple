@@ -37,6 +37,10 @@ on:
       java-distribution:
         required: true
         type: string
+      os:
+        required: true
+        type: string
+        default: 'ubuntu-latest'
 
 env:
   MAVEN_ARGS: -V -B --no-transfer-progress
